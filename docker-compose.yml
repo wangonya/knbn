@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/app
+    command: >
+      python manage.py runserver 0.0.0.0:8000
