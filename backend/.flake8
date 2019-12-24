@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+	migrations,
+	manage.py,
+	settings.py,
+	venv/,
+	env/,
+	.idea/,
+	.pytest_cache/,
+	__pycache__
