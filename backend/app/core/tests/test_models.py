@@ -1,8 +1,9 @@
+import pytest
+
 from django.contrib.auth import get_user_model
 
 
-def test_create_user_with_email_successful():
-    """Test creating a user with an email is successful"""
+def test_creating_user_is_successful():
     email = 'test@mail.com'
     password = 'testpass'
     user = get_user_model().objects.create_user(
@@ -14,8 +15,7 @@ def test_create_user_with_email_successful():
     assert user.check_password(password)
 
 
-def test_new_user_email_normalized():
-    """Test the email for a new user is normalized"""
+def test_new_user_email_is_normalized():
     email = 'test@MAIL.com'
     user = get_user_model().objects.create_user(
         email=email,
@@ -23,3 +23,11 @@ def test_new_user_email_normalized():
     )
 
     assert user.email == email.lower()
+
+
+def test_creating_user_without_details_raises_error():
+    with pytest.raises(ValueError):
+        assert get_user_model().objects.create_user(
+            email=None,
+            password=None
+        )
