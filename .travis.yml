@@ -1,3 +1,10 @@
+branches:
+  only:
+  - develop
+
+notifications:
+  email: false
+
 matrix:
   include:
     - language: python
@@ -20,6 +27,3 @@ matrix:
 #        - yarn install
 #      script:
 #        - yarn test
-
-notifications:
-  email: false
