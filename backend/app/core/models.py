@@ -32,8 +32,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     # @property allows to use this method directly in the views to
-    # get the token. Without it, calling this method and using the returned token
-    # in the response raises: `TypeError: Object of type method is not JSON serializable`
+    # get the token. Without it, calling this method and using the
+    # returned token in the response raises:
+    # `TypeError: Object of type method is not JSON serializable`
     def generate_token(self):
         jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
         jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
