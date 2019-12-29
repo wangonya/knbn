@@ -15,12 +15,15 @@ matrix:
         - cd app/
       script:
         - pytest && flake8
-    - language: node_js
-      node_js:
-        - 10.16
-      before_install:
-        - cd frontend/
-      install:
-        - yarn install
-      script:
-        - yarn test
+# not really using this node_js config but I'm
+# keeping it here as an example of how to set up
+# builds for different languages in the same file
+#    - language: node_js
+#      node_js:
+#        - 10.16
+#      before_install:
+#        - cd frontend/
+#      install:
+#        - yarn install
+#      script:
+#        - yarn test
