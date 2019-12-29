@@ -2,9 +2,6 @@ branches:
   only:
   - develop
 
-notifications:
-  email: false
-
 matrix:
   include:
     - language: python
