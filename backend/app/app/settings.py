@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,11 @@ STATIC_URL = '/static/'
 # customize user model
 
 AUTH_USER_MODEL = 'core.User'
+
+# rest framework configs
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ]
+}
