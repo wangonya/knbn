@@ -10,6 +10,7 @@ import {
   Link,
 } from 'react-router-dom';
 
+import Register from './components/Register'
 import './App.css';
 
 const { SubMenu } = Menu;
@@ -76,6 +77,9 @@ const App = () => (
             </Route>
             <Route path="/projects/:projectId">
              add project component here
+            </Route>
+            <Route path="/register">
+              <Register />
             </Route>
             <Route path="/">
              add home component here
