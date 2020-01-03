@@ -1,4 +1,4 @@
-import React from 'react';
+import { post } from '.';
 
 const auth = {
   isAuthenticated: false,
@@ -12,4 +12,8 @@ const auth = {
   },
 };
 
-export default auth;
+const submitAuthDetails = (authDetails, endpoint) => {
+  post(`users/${endpoint}`, authDetails);
+};
+
+export { auth, submitAuthDetails };
