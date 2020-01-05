@@ -29,11 +29,11 @@ class LoginUserView(views.APIView):
                     })
                 else:
                     return Response({
-                        'error': 'Wrong username or password.p'
+                        'error': 'Wrong username or password.'
                     }, status=status.HTTP_400_BAD_REQUEST)
             except ObjectDoesNotExist:
                 return Response({
-                    'error': 'Wrong username or password.o'
+                    'error': 'Wrong username or password.'
                 }, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response({
