@@ -1,19 +1,28 @@
-import { post } from '.';
+import axios from 'axios';
+import { errorAlert, successAlert } from '.';
 
-const auth = {
-  isAuthenticated: false,
-  authenticate() {
-    if (localStorage.getItem('token')) {
-      this.isAuthenticated = true;
-    }
-  },
-  signout() {
-    this.isAuthenticated = false;
-  },
-};
+const SERVER_DOMAIN = process.env.REACT_APP_API_ROOT;
 
 const submitAuthDetails = (authDetails, endpoint) => {
-  post(`users/${endpoint}`, authDetails);
+  axios.post(`${SERVER_DOMAIN}/users/${endpoint}/`, authDetails)
+    .then((response) => {
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        window.location = '/';
+      } else {
+        successAlert(
+          `User ${authDetails.username} created.
+          You can now log in with your credentials.`,
+        );
+      }
+    })
+    .catch((error) => {
+      errorAlert(
+        error.response.data.error
+        || Object.values(error.response.data)[0]
+        || 'Something went wrong. Please try again later.',
+      );
+    });
 };
 
-export { auth, submitAuthDetails };
+export { submitAuthDetails };
