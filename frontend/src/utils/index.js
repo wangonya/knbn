@@ -1,1 +1,8 @@
-export { default as auth } from './auth';
+export { submitAuthDetails } from './auth';
+export {
+  get, post, patch, del,
+} from './api';
+export {
+  errorAlert,
+  successAlert,
+} from './alerts';

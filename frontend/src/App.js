@@ -26,14 +26,20 @@ const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (
-    auth.isAuthenticated === true
-      ? <Component {...props} />
-      : <Redirect to={{
-          pathname: '/login',
-          state: { from: props.location }
-        }} />
-  )} />
+  <Route
+    {...rest}
+    render={(props) => (
+      localStorage.getItem('token')
+        ? <Component {...props} />
+        : (
+          <Redirect to={{
+            pathname: '/login',
+            state: { from: props.location },
+          }}
+          />
+        )
+    )}
+  />
 );
 
 const App = () => (
