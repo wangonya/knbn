@@ -11,7 +11,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { auth } from './utils';
 import {
   Register,
   Login,
@@ -74,6 +73,12 @@ const App = () => (
               </span>
               )}
           >
+            <Menu.Item key="newProject">
+              <span>
+                <Icon type="plus" />
+  New project
+              </span>
+            </Menu.Item>
             <Menu.Item key="projectId">
               <Link to="/projects/project1">project 1</Link>
             </Menu.Item>
