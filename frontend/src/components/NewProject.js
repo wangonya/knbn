@@ -25,7 +25,7 @@ const registerLinkStyle = {
 };
 
 
-function NewProject({ form, visible }) {
+function NewProject({ form, visible, setVisible }) {
   const { getFieldDecorator } = form;
 
   const handleSubmit = (e) => {
@@ -42,6 +42,7 @@ function NewProject({ form, visible }) {
       <Modal
         title="Add new project"
         visible={visible}
+        onCancel={() => setVisible(!visible)}
       >
         <Form style={formStyle} onSubmit={handleSubmit}>
           <Form.Item>

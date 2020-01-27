@@ -104,7 +104,7 @@ const App = () => {
               minHeight: 280,
             }}
           >
-            {showAddNewProject && <NewProject visible={addNewProject} />}
+            {showAddNewProject && <NewProject visible={addNewProject} setVisible={showAddNewProject} />}
             <Switch>
               <PrivateRoute path="/profile" component={Profile} />
               <PrivateRoute path="/projects/:projectId" component={Project} />
