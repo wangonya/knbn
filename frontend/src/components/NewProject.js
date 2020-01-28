@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { submitAuthDetails } from '../utils';
 
+const { TextArea } = Input;
+
 const formStyle = {
   maxWidth: '300px',
   margin: '0 auto',
@@ -15,15 +17,6 @@ const formStyle = {
 const formButtonStyle = {
   width: '100%',
 };
-
-const forgotPasswordLinkStyle = {
-  float: 'left',
-};
-
-const registerLinkStyle = {
-  float: 'right',
-};
-
 
 function NewProject({ form, visible, setVisible }) {
   const { getFieldDecorator } = form;
@@ -43,39 +36,34 @@ function NewProject({ form, visible, setVisible }) {
         title="Add new project"
         visible={visible}
         onCancel={() => setVisible(!visible)}
+        footer={null}
       >
         <Form style={formStyle} onSubmit={handleSubmit}>
           <Form.Item>
-            {getFieldDecorator('username', {
-              rules: [{ required: true, message: 'Please input your Username!' }],
+            {getFieldDecorator('title', {
+              rules: [{ required: true, message: 'Project title is required.' }],
             })(
               <Input
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Username"
+                prefix={<Icon type="edit" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Title"
               />,
             )}
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: 'Please input your Password!' }],
+            {getFieldDecorator('description', {
+              rules: [{ required: false }],
             })(
-              <Input
-                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="password"
-                placeholder="Password"
+              <TextArea
+                prefix={<Icon type="edit" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="text"
+                placeholder="Description"
               />,
             )}
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" style={formButtonStyle}>
-            Log in
+            Create project
             </Button>
-          </Form.Item>
-          <Form.Item>
-            <a style={forgotPasswordLinkStyle}>
-            Forgot password
-            </a>
-            <Link to="/register" style={registerLinkStyle}>Register now!</Link>
           </Form.Item>
         </Form>
       </Modal>
