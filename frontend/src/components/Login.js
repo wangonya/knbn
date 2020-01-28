@@ -46,6 +46,7 @@ function Login(props) {
         visible={setVisible}
         loading={setLoading}
         footer={null}
+        className="authForm"
       >
         <Form style={formStyle} onSubmit={handleSubmit}>
           <Form.Item>
