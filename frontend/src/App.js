@@ -71,7 +71,7 @@ const App = () => {
               key="projects_menu"
               title={(
                 <span>
-                  <Icon type="laptop" />
+                  <Icon type="project" />
                 Projects
                 </span>
               )}
