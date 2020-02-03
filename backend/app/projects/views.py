@@ -1,6 +1,4 @@
 from rest_framework import (
-    status,
-    views,
     mixins,
     generics,
 )
