@@ -25,4 +25,13 @@ const submitAuthDetails = (authDetails, endpoint) => {
     });
 };
 
-export { submitAuthDetails };
+const decodeToken = () => {
+  try {
+    const token = localStorage.getItem('token');
+    return JSON.parse(atob(token.split('.')[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
+export { submitAuthDetails, decodeToken };
