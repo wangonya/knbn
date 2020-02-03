@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import {
   Modal, Form, Icon, Input, Button,
 } from 'antd';
-import { Link } from 'react-router-dom';
 
-import { submitAuthDetails } from '../utils';
+import { submitProjectDetails } from '../utils';
 
 const { TextArea } = Input;
 
@@ -25,7 +24,7 @@ function NewProject({ form, visible, setVisible }) {
     e.preventDefault();
     form.validateFields((err, values) => {
       if (!err) {
-        submitAuthDetails(values, 'login');
+        submitProjectDetails(values);
       }
     });
   };
