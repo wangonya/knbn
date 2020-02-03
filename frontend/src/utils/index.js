@@ -1,4 +1,5 @@
-export { submitAuthDetails } from './auth';
+export { submitAuthDetails, decodeToken } from './auth';
+export { submitProjectDetails } from './project';
 export {
   get, post, patch, del,
 } from './api';
