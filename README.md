@@ -1,3 +1,7 @@
-# Trelloo
+# knbn
 
-Trelloo is a <a href="https://trello.com/en" target="_blank">Trello</a> clone made with Python (Django) and Javascript (React).
+knbn is a kanban board app for simple agile project management.
+
+## Stack
+- [Flask](https://flask.palletsprojects.com/) backend
+- [Elm](https://elm-lang.org/) frontend
