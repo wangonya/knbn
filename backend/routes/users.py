@@ -18,7 +18,8 @@ class User(BaseModel):
 @route.post('/register', status_code=201)
 async def register_user(user_data: User):
     try:
-        user = auth.create_user_with_email_and_password(user_data.email, user_data.password)
+        user = auth.create_user_with_email_and_password(user_data.email,
+                                                        user_data.password)
         auth.send_email_verification(user['idToken'])
         return {'user': user}
     except requests.HTTPError as e:
@@ -37,7 +38,8 @@ async def register_user(user_data: User):
 @route.post('/login')
 async def login_user(user_data: User):
     try:
-        user = auth.sign_in_with_email_and_password(user_data.email, user_data.password)
+        user = auth.sign_in_with_email_and_password(
+            user_data.email, user_data.password)
         if not check_email_verified(auth.get_account_info(user['idToken'])):
             response = {'detail': 'Email unverified'}
             return JSONResponse(status_code=403, content=response)
