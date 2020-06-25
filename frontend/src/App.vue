@@ -22,20 +22,7 @@
         <a-button icon="plus">New Project</a-button>
       </a-layout-header>
       <a-layout-content style="margin: 0 16px;">
-        <a-row>
-          <a-col :span="6">
-            <a-card style title="Backlog"></a-card>
-          </a-col>
-          <a-col :span="6">
-            <a-card style title="In Progress"></a-card>
-          </a-col>
-          <a-col :span="6">
-            <a-card style title="QA"></a-card>
-          </a-col>
-          <a-col :span="6">
-            <a-card style title="Done"></a-card>
-          </a-col>
-        </a-row>
+        <Boards />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -43,11 +30,12 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import Boards from './components/Boards'
 
 export default {
   name: "App",
   components: {
-    // HelloWorld
+    Boards
   },
   data() {
     return {
